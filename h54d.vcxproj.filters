@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{57CA55B8-BCC5-4000-CE3A-58972F82E9CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\internal">
+      <UniqueIdentifier>{1D4CEA7C-B637-77CF-7A24-85ABD36F82A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h54d">
+      <UniqueIdentifier>{D274B8E6-49FB-E975-44BB-8C73F7EB86AD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h54d\res">
+      <UniqueIdentifier>{1177910C-2DCE-8F2F-24FB-580080DDACDC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\cef_nplugin_capi.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cef_nplugin.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cef_capi.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cef_runnable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cef_wrapper.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cef.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cef_version.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_tuple.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_string_list.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_time.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_ptr.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_string_multimap.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_win.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_nplugin_types.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_string_types.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_export.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_string_map.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_types_win.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_string.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_types.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_build.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_types_wrappers.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\internal\cef_string_wrappers.h">
+      <Filter>include\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="cefclient\uiplugin.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClInclude Include="cefclient\cefclient.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClInclude Include="cefclient\Resource.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClInclude Include="cefclient\client_handler.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClInclude Include="cefclient\client_popup_handler.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClInclude Include="cefclient\string_util.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClInclude Include="cefclient\resource_util.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClCompile Include="cefclient\clientplugin.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClInclude Include="cefclient\download_handler.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClCompile Include="cefclient\cefclient.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClInclude Include="cefclient\clientplugin.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClCompile Include="cefclient\string_util.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClInclude Include="cefclient\cefclient_switches.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClInclude Include="cefclient\osrplugin.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ResourceCompile Include="cefclient\cefclient.rc">
+      <Filter>h54d</Filter>
+    </ResourceCompile>
+    <ClCompile Include="cefclient\cefclient_switches.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClCompile Include="cefclient\uiplugin.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClCompile Include="cefclient\download_handler.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClCompile Include="cefclient\cefclient_win.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClCompile Include="cefclient\osrplugin.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClCompile Include="cefclient\client_handler.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClCompile Include="cefclient\client_popup_handler.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClCompile Include="cefclient\resource_util_win.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <ClInclude Include="cefclient\util.h">
+      <Filter>h54d</Filter>
+    </ClInclude>
+    <ClCompile Include="cefclient\client_handler_win.cpp">
+      <Filter>h54d</Filter>
+    </ClCompile>
+    <None Include="cefclient\res\extensionperf.html">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\cefclient.ico">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\osrplugin.html">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\domaccess.html">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\transparency.html">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\modalmain.html">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\modaldialog.html">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\localstorage.html">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\xmlhttprequest.html">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\small.ico">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\logo.png">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\logoball.png">
+      <Filter>h54d\res</Filter>
+    </None>
+    <None Include="cefclient\res\uiplugin.html">
+      <Filter>h54d\res</Filter>
+    </None>
+  </ItemGroup>
+</Project>
