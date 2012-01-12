@@ -84,9 +84,6 @@
     <ClInclude Include="include\internal\cef_string_wrappers.h">
       <Filter>include\internal</Filter>
     </ClInclude>
-    <ClInclude Include="cefclient\uiplugin.h">
-      <Filter>h54d</Filter>
-    </ClInclude>
     <ClInclude Include="cefclient\cefclient.h">
       <Filter>h54d</Filter>
     </ClInclude>
@@ -105,25 +102,16 @@
     <ClInclude Include="cefclient\resource_util.h">
       <Filter>h54d</Filter>
     </ClInclude>
-    <ClCompile Include="cefclient\clientplugin.cpp">
-      <Filter>h54d</Filter>
-    </ClCompile>
     <ClInclude Include="cefclient\download_handler.h">
       <Filter>h54d</Filter>
     </ClInclude>
     <ClCompile Include="cefclient\cefclient.cpp">
       <Filter>h54d</Filter>
     </ClCompile>
-    <ClInclude Include="cefclient\clientplugin.h">
-      <Filter>h54d</Filter>
-    </ClInclude>
     <ClCompile Include="cefclient\string_util.cpp">
       <Filter>h54d</Filter>
     </ClCompile>
     <ClInclude Include="cefclient\cefclient_switches.h">
-      <Filter>h54d</Filter>
-    </ClInclude>
-    <ClInclude Include="cefclient\osrplugin.h">
       <Filter>h54d</Filter>
     </ClInclude>
     <ResourceCompile Include="cefclient\cefclient.rc">
@@ -132,16 +120,10 @@
     <ClCompile Include="cefclient\cefclient_switches.cpp">
       <Filter>h54d</Filter>
     </ClCompile>
-    <ClCompile Include="cefclient\uiplugin.cpp">
-      <Filter>h54d</Filter>
-    </ClCompile>
     <ClCompile Include="cefclient\download_handler.cpp">
       <Filter>h54d</Filter>
     </ClCompile>
     <ClCompile Include="cefclient\cefclient_win.cpp">
-      <Filter>h54d</Filter>
-    </ClCompile>
-    <ClCompile Include="cefclient\osrplugin.cpp">
       <Filter>h54d</Filter>
     </ClCompile>
     <ClCompile Include="cefclient\client_handler.cpp">

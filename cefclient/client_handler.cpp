@@ -4,7 +4,6 @@
 
 #include "include/cef.h"
 #include "client_handler.h"
-#include "binding_test.h"
 #include "cefclient.h"
 #include "download_handler.h"
 #include "string_util.h"
@@ -268,9 +267,6 @@ void ClientHandler::OnContextCreated(CefRefPtr<CefBrowser> browser,
                                      CefRefPtr<CefV8Context> context)
 {
   REQUIRE_UI_THREAD();
-
-  // Add the V8 bindings.
-  InitBindingTest(browser, frame, context->GetGlobal());
 }
 
 bool ClientHandler::OnDragStart(CefRefPtr<CefBrowser> browser,
