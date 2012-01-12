@@ -11,6 +11,7 @@
 #include <commdlg.h>
 #include <direct.h>
 #include <sstream>
+#include <algorithm>
 
 #include <shellapi.h>
 
@@ -142,7 +143,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 	wcex.hIcon			= LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CEFCLIENT));
 	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
-	wcex.lpszMenuName	= MAKEINTRESOURCE(IDC_CEFCLIENT);
+	wcex.lpszMenuName	= NULL; //MAKEINTRESOURCE(IDC_CEFCLIENT);
 	wcex.lpszClassName	= szWindowClass;
 	wcex.hIconSm		= LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -298,10 +299,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         // Populate the settings based on command line arguments.
         AppGetBrowserSettings(settings);
 
+		std::string working_dir(szWorkingDir);
+		std::replace(working_dir.begin(), working_dir.end(), '\\', '/' );
+		std::wstringstream index_htm;
+		index_htm << L"file:///";
+		index_htm << working_dir.c_str();
+		index_htm << L"/index.htm";
+
+		//MessageBox(hWnd, index_htm.str().c_str(), L"Console Messages", MB_OK | MB_ICONINFORMATION);
+
         // Creat the new child browser window
         CefBrowser::CreateBrowser(info,
             static_cast<CefRefPtr<CefClient> >(g_handler),
-            "file://index.htm", settings);
+            index_htm.str().c_str(), settings);
       }
       return 0;
 
