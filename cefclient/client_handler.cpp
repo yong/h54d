@@ -16,6 +16,10 @@ ClientHandler::ClientHandler()
   : m_MainHwnd(NULL),
     m_BrowserHwnd(NULL),
     m_EditHwnd(NULL),
+    m_BackHwnd(NULL),
+    m_ForwardHwnd(NULL),
+    m_StopHwnd(NULL),
+    m_ReloadHwnd(NULL),
     m_bFormElementHasFocus(false)
 {
 }
@@ -72,6 +76,11 @@ void ClientHandler::OnLoadStart(CefRefPtr<CefBrowser> browser,
                                 CefRefPtr<CefFrame> frame)
 {
   REQUIRE_UI_THREAD();
+
+  if(m_BrowserHwnd == browser->GetWindowHandle() && frame->IsMain()) {
+    // We've just started loading a page
+    SetLoading(true);
+  }
 }
 
 void ClientHandler::OnLoadEnd(CefRefPtr<CefBrowser> browser,
@@ -81,6 +90,9 @@ void ClientHandler::OnLoadEnd(CefRefPtr<CefBrowser> browser,
   REQUIRE_UI_THREAD();
 
   if(m_BrowserHwnd == browser->GetWindowHandle() && frame->IsMain()) {
+    // We've just finished loading a page
+    SetLoading(false);
+
     CefRefPtr<CefDOMVisitor> visitor = GetDOMVisitor(frame->GetURL());
     if(visitor.get())
       frame->VisitDOM(visitor);
@@ -141,6 +153,8 @@ void ClientHandler::OnNavStateChange(CefRefPtr<CefBrowser> browser,
                                      bool canGoForward)
 {
   REQUIRE_UI_THREAD();
+
+  SetNavState(canGoBack, canGoForward);
 }
 
 bool ClientHandler::OnConsoleMessage(CefRefPtr<CefBrowser> browser,
@@ -306,6 +320,18 @@ void ClientHandler::SetEditHwnd(CefWindowHandle hwnd)
 {
   AutoLock lock_scope(this);
   m_EditHwnd = hwnd;
+}
+
+void ClientHandler::SetButtonHwnds(CefWindowHandle backHwnd,
+                                   CefWindowHandle forwardHwnd,
+                                   CefWindowHandle reloadHwnd,
+                                   CefWindowHandle stopHwnd)
+{
+  AutoLock lock_scope(this);
+  m_BackHwnd = backHwnd;
+  m_ForwardHwnd = forwardHwnd;
+  m_ReloadHwnd = reloadHwnd;
+  m_StopHwnd = stopHwnd;
 }
 
 std::string ClientHandler::GetLogFile()

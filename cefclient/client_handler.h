@@ -151,6 +151,10 @@ public:
   void SetMainHwnd(CefWindowHandle hwnd);
   CefWindowHandle GetMainHwnd() { return m_MainHwnd; }
   void SetEditHwnd(CefWindowHandle hwnd);
+  void SetButtonHwnds(CefWindowHandle backHwnd,
+                      CefWindowHandle forwardHwnd,
+                      CefWindowHandle reloadHwnd,
+                      CefWindowHandle stopHwnd);
   
   CefRefPtr<CefBrowser> GetBrowser() { return m_Browser; }
   CefWindowHandle GetBrowserHwnd() { return m_BrowserHwnd; }
@@ -176,6 +180,9 @@ public:
   void CloseMainWindow();
 
 protected:
+  void SetLoading(bool isLoading);
+  void SetNavState(bool canGoBack, bool canGoForward);
+
   // The child browser window
   CefRefPtr<CefBrowser> m_Browser;
 
@@ -187,6 +194,12 @@ protected:
 
   // The edit window handle
   CefWindowHandle m_EditHwnd;
+
+  // The button window handles
+  CefWindowHandle m_BackHwnd;
+  CefWindowHandle m_ForwardHwnd;
+  CefWindowHandle m_StopHwnd;
+  CefWindowHandle m_ReloadHwnd;
 
   // Support for logging.
   std::string m_LogFile;
