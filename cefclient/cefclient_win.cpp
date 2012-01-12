@@ -283,44 +283,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         // Create the single static handler class instance
         g_handler = new ClientHandler();
         g_handler->SetMainHwnd(hWnd);
-
-        // Create the child windows used for navigation
-        RECT rect;
-        int x = 0;
-        
-        GetClientRect(hWnd, &rect);
-        
-        backWnd = CreateWindow(L"BUTTON", L"Back",
-                               WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON
-                               | WS_DISABLED, x, 0, BUTTON_WIDTH, URLBAR_HEIGHT,
-                               hWnd, (HMENU) IDC_NAV_BACK, hInst, 0);
-        x += BUTTON_WIDTH;
-
-        forwardWnd = CreateWindow(L"BUTTON", L"Forward",
-                                  WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON
-                                  | WS_DISABLED, x, 0, BUTTON_WIDTH,
-                                  URLBAR_HEIGHT, hWnd, (HMENU) IDC_NAV_FORWARD,
-                                  hInst, 0);
-        x += BUTTON_WIDTH;
-
-        reloadWnd = CreateWindow(L"BUTTON", L"Reload",
-                                 WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON
-                                 | WS_DISABLED, x, 0, BUTTON_WIDTH,
-                                 URLBAR_HEIGHT, hWnd, (HMENU) IDC_NAV_RELOAD,
-                                 hInst, 0);
-        x += BUTTON_WIDTH;
-
-        stopWnd = CreateWindow(L"BUTTON", L"Stop",
-                               WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON
-                               | WS_DISABLED, x, 0, BUTTON_WIDTH, URLBAR_HEIGHT,
-                               hWnd, (HMENU) IDC_NAV_STOP, hInst, 0);
-        x += BUTTON_WIDTH;
-
-        editWnd = CreateWindow(L"EDIT", 0,
-                               WS_CHILD | WS_VISIBLE | WS_BORDER | ES_LEFT |
-                               ES_AUTOVSCROLL | ES_AUTOHSCROLL| WS_DISABLED, 
-                               x, 0, rect.right - BUTTON_WIDTH * 4,
-                               URLBAR_HEIGHT, hWnd, 0, hInst, 0);
         
         // Assign the edit window's WNDPROC to this function so that we can
         // capture the enter key
@@ -329,23 +291,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         SetWindowLongPtr(editWnd, GWLP_WNDPROC,
             reinterpret_cast<LONG_PTR>(WndProc)); 
         g_handler->SetEditHwnd(editWnd);
-        g_handler->SetButtonHwnds(backWnd, forwardWnd, reloadWnd, stopWnd);
         
-        rect.top += URLBAR_HEIGHT;
-         
         CefWindowInfo info;
         CefBrowserSettings settings;
 
         // Populate the settings based on command line arguments.
         AppGetBrowserSettings(settings);
 
-        // Initialize window info to the defaults for a child window
-        info.SetAsChild(hWnd, rect);
-
         // Creat the new child browser window
         CefBrowser::CreateBrowser(info,
             static_cast<CefRefPtr<CefClient> >(g_handler),
-            "http://www.google.com", settings);
+            "file://index.htm", settings);
       }
       return 0;
 
