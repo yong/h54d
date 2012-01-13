@@ -180,9 +180,6 @@ public:
   void CloseMainWindow();
 
 protected:
-  void SetLoading(bool isLoading);
-  void SetNavState(bool canGoBack, bool canGoForward);
-
   // The child browser window
   CefRefPtr<CefBrowser> m_Browser;
 
@@ -191,15 +188,6 @@ protected:
 
   // The child browser window handle
   CefWindowHandle m_BrowserHwnd;
-
-  // The edit window handle
-  CefWindowHandle m_EditHwnd;
-
-  // The button window handles
-  CefWindowHandle m_BackHwnd;
-  CefWindowHandle m_ForwardHwnd;
-  CefWindowHandle m_StopHwnd;
-  CefWindowHandle m_ReloadHwnd;
 
   // Support for logging.
   std::string m_LogFile;
