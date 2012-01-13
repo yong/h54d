@@ -273,6 +273,7 @@
     <None Include="cefclient\res\uiplugin.html" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cefclient\ext\os.h" />
     <ClInclude Include="include\cef_nplugin_capi.h" />
     <ClInclude Include="include\cef_nplugin.h" />
     <ClInclude Include="include\cef_capi.h" />
@@ -308,6 +309,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cefclient\cefclient.cpp" />
+    <ClCompile Include="cefclient\ext\os.cpp" />
     <ClCompile Include="cefclient\string_util.cpp" />
     <ClCompile Include="cefclient\cefclient_switches.cpp" />
     <ClCompile Include="cefclient\download_handler.cpp" />

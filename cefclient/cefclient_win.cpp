@@ -15,6 +15,8 @@
 
 #include <shellapi.h>
 
+#include "ext/os.h"
+
 #define MAX_LOADSTRING 100
 #define MAX_URL_LENGTH  255
 #define BUTTON_WIDTH 72
@@ -298,6 +300,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         // Initialize window info to the defaults for a child window
         info.SetAsChild(hWnd, rect);
+
+		OS::Initialize();
 
 		std::string working_dir(szWorkingDir);
 		std::replace(working_dir.begin(), working_dir.end(), '\\', '/' );

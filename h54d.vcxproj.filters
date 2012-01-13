@@ -13,6 +13,9 @@
     <Filter Include="h54d\res">
       <UniqueIdentifier>{1177910C-2DCE-8F2F-24FB-580080DDACDC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="h54d\ext">
+      <UniqueIdentifier>{2e440f27-af1b-4f35-80e3-bc98ca526ac0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cef_nplugin_capi.h">
@@ -180,5 +183,13 @@
     <None Include="cefclient\res\uiplugin.html">
       <Filter>h54d\res</Filter>
     </None>
+    <ClInclude Include="cefclient\ext\os.h">
+      <Filter>h54d\ext</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cefclient\ext\os.cpp">
+      <Filter>h54d\ext</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
