@@ -17,11 +17,6 @@ extern CefRefPtr<ClientHandler> g_handler;
 
 char szWorkingDir[512];   // The current working directory
 
-// Sizes for URL bar layout
-#define BUTTON_HEIGHT 22
-#define BUTTON_WIDTH 72
-#define BUTTON_MARGIN 8
-#define URLBAR_HEIGHT  32
 
 // Content area size for newly created windows.
 const int kWindowWidth = 800;
@@ -168,16 +163,6 @@ static NSAutoreleasePool* g_autopool = nil;
 @end
 
 
-NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
-  NSButton* button = [[[NSButton alloc] initWithFrame:*rect] autorelease];
-  [button setTitle:title];
-  [button setBezelStyle:NSSmallSquareBezelStyle];
-  [button setAutoresizingMask:(NSViewMaxXMargin | NSViewMinYMargin)];
-  [parent addSubview:button];
-  rect->origin.x += BUTTON_WIDTH;
-  return button;
-}
-
 // Receives notifications from the application. Will delete itself when done.
 @interface ClientAppDelegate : NSObject
 - (void)createApp:(id)object;
@@ -220,42 +205,6 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
 
   NSView* contentView = [mainWnd contentView];
 
-  // Create the buttons.
-  NSRect button_rect = [contentView bounds];
-  button_rect.origin.y = window_rect.size.height - URLBAR_HEIGHT +
-      (URLBAR_HEIGHT - BUTTON_HEIGHT) / 2;
-  button_rect.size.height = BUTTON_HEIGHT;
-  button_rect.origin.x += BUTTON_MARGIN;
-  button_rect.size.width = BUTTON_WIDTH;
-
-  NSButton* button = MakeButton(&button_rect, @"Back", contentView);
-  [button setTarget:delegate];
-  [button setAction:@selector(goBack:)];
-
-  button = MakeButton(&button_rect, @"Forward", contentView);
-  [button setTarget:delegate];
-  [button setAction:@selector(goForward:)];
-
-  button = MakeButton(&button_rect, @"Reload", contentView);
-  [button setTarget:delegate];
-  [button setAction:@selector(reload:)];
-
-  button = MakeButton(&button_rect, @"Stop", contentView);
-  [button setTarget:delegate];
-  [button setAction:@selector(stopLoading:)];
-
-  // Create the URL text field.
-  button_rect.origin.x += BUTTON_MARGIN;
-  button_rect.size.width = [contentView bounds].size.width -
-      button_rect.origin.x - BUTTON_MARGIN;
-  NSTextField* editWnd = [[NSTextField alloc] initWithFrame:button_rect];
-  [contentView addSubview:editWnd];
-  [editWnd setAutoresizingMask:(NSViewWidthSizable | NSViewMinYMargin)];
-  [editWnd setTarget:delegate];
-  [editWnd setAction:@selector(takeURLStringValueFrom:)];
-  [[editWnd cell] setWraps:NO];
-  [[editWnd cell] setScrollable:YES];
-
   // Create the handler.
   g_handler = new ClientHandler();
   g_handler->SetMainHwnd(contentView);
@@ -277,7 +226,7 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
   // Size the window.
   NSRect r = [mainWnd contentRectForFrameRect:[mainWnd frame]];
   r.size.width = kWindowWidth;
-  r.size.height = kWindowHeight + URLBAR_HEIGHT;
+  r.size.height = kWindowHeight;
   [mainWnd setFrame:[mainWnd frameRectForContentRect:r] display:YES];
 }
 
