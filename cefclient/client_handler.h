@@ -150,11 +150,6 @@ public:
 
   void SetMainHwnd(CefWindowHandle hwnd);
   CefWindowHandle GetMainHwnd() { return m_MainHwnd; }
-  void SetEditHwnd(CefWindowHandle hwnd);
-  void SetButtonHwnds(CefWindowHandle backHwnd,
-                      CefWindowHandle forwardHwnd,
-                      CefWindowHandle reloadHwnd,
-                      CefWindowHandle stopHwnd);
   
   CefRefPtr<CefBrowser> GetBrowser() { return m_Browser; }
   CefWindowHandle GetBrowserHwnd() { return m_BrowserHwnd; }
