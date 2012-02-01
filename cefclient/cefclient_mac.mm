@@ -173,7 +173,7 @@ static NSAutoreleasePool* g_autopool = nil;
 // Create the application on the UI thread.
 - (void)createApp:(id)object {
   [NSApplication sharedApplication];
-  [NSBundle loadNibNamed:@"MainMenu" owner:NSApp];
+  //[NSBundle loadNibNamed:@"MainMenu" owner:NSApp];
   
   // Set the delegate for application events.
   [NSApp setDelegate:self];
