@@ -2,6 +2,8 @@
 #include "include/cef.h"
 #include "include/cef_runnable.h"
 
+extern CefRefPtr<CefV8Value> getNetworkInterface();
+
 class MyV8Handler : public CefV8Handler
 {
 public:
@@ -13,9 +15,9 @@ public:
                        CefRefPtr<CefV8Value>& retval,
                        CefString& exception) OVERRIDE
   {
-    if (name == "myfunc") {
+    if (name == "networkInterfaces") {
       // Return my string value.
-      retval = CefV8Value::CreateString("My Value!");
+      retval = getNetworkInterface();
       return true;
     }
 
@@ -31,13 +33,18 @@ void OS::Initialize()
 {
 	// Define the extension contents.
 	std::string extensionCode =
-	  "var test;"
-	  "if (!test)"
-	  "  test = {};"
+	  "var os;"
+	  "if (!os)"
+	  "  os = {};"
 	  "(function() {"
-	  "  test.myfunc = function() {"
-	  "    native function myfunc();"
-	  "    return myfunc();"
+#ifdef WIN32
+	  "  os.type = function() {return 'windows'};"
+#elif __APPLE__
+	  "  os.type = function() {return 'mac'};"
+#endif
+	  "  os.networkInterfaces = function() {"
+	  "    native function networkInterfaces();"
+	  "    return networkInterfaces();"
 	  "  };"
 	  "})();";
 
@@ -45,5 +52,5 @@ void OS::Initialize()
 	CefRefPtr<CefV8Handler> handler = new MyV8Handler();
 
 	// Register the extension.
-	CefRegisterExtension("v8/test", extensionCode, handler);
+	CefRegisterExtension("v8/os", extensionCode, handler);
 }

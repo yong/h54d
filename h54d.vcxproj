@@ -42,7 +42,7 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
-    <OutDir>$(Configuration)\</OutDir>
+    <OutDir>win\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -273,6 +273,7 @@
     <None Include="cefclient\res\uiplugin.html" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cefclient\ext\fs.h" />
     <ClInclude Include="cefclient\ext\os.h" />
     <ClInclude Include="include\cef_nplugin_capi.h" />
     <ClInclude Include="include\cef_nplugin.h" />
@@ -309,7 +310,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cefclient\cefclient.cpp" />
+    <ClCompile Include="cefclient\ext\fs.cpp" />
     <ClCompile Include="cefclient\ext\os.cpp" />
+    <ClCompile Include="cefclient\ext\win.cpp" />
     <ClCompile Include="cefclient\string_util.cpp" />
     <ClCompile Include="cefclient\cefclient_switches.cpp" />
     <ClCompile Include="cefclient\download_handler.cpp" />

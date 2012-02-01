@@ -1,0 +1,24 @@
+<html>                                                                  
+ <head>                    
+ <title>your app</title>                                             
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>          
+ <script type="text/javascript">                                        
+ $(document).ready(function() {
+   $("#message").html("Your operating system is: " + os.type());
+   
+   $("#readhost").click(function() {
+     var filepath = (os.type() != 'windows') ? '/etc/hosts' : 'C:\\Windows\\System32\\drivers\\etc\\hosts';
+     var callback = function (err, data) {
+       if (err) throw err;
+       alert(data);
+     };
+     fs.readFile(filepath,  callback);
+   });
+ });                                    
+ </script>                                                               
+ </head>                                                                 
+ <body>      
+   <p id="message"></p>                                           
+   <a href="#" id="readhost">Click to read /etc/hosts file</a>                                        
+ </body>                                                                 
+ </html>

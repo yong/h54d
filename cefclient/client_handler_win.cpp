@@ -22,15 +22,6 @@ bool ClientHandler::OnBeforePopup(CefRefPtr<CefBrowser> parentBrowser,
 {
   REQUIRE_UI_THREAD();
 
-#ifdef TEST_REDIRECT_POPUP_URLS
-  std::string urlStr = url;
-  if(urlStr.find("chrome-devtools:") == std::string::npos) {
-    // Show all popup windows excluding DevTools in the current window.
-    windowInfo.m_dwStyle &= ~WS_VISIBLE;
-    client = new ClientPopupHandler(m_Browser);
-  }
-#endif // TEST_REDIRECT_POPUP_URLS
-
   return false;
 }
 

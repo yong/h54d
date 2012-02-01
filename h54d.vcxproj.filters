@@ -186,9 +186,18 @@
     <ClInclude Include="cefclient\ext\os.h">
       <Filter>h54d\ext</Filter>
     </ClInclude>
+    <ClInclude Include="cefclient\ext\fs.h">
+      <Filter>h54d\ext</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cefclient\ext\os.cpp">
+      <Filter>h54d\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="cefclient\ext\fs.cpp">
+      <Filter>h54d\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="cefclient\ext\win.cpp">
       <Filter>h54d\ext</Filter>
     </ClCompile>
   </ItemGroup>

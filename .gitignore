@@ -2,3 +2,5 @@
 *.suo
 *.opensdf
 *.vcxproj.user
+*.log
+*.pdb

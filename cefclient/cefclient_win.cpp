@@ -16,6 +16,7 @@
 #include <shellapi.h>
 
 #include "ext/os.h"
+#include "ext/fs.h"
 
 #define MAX_LOADSTRING 100
 #define MAX_URL_LENGTH  255
@@ -302,6 +303,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         info.SetAsChild(hWnd, rect);
 
 		OS::Initialize();
+		FS::Initialize();
 
 		std::string working_dir(szWorkingDir);
 		std::replace(working_dir.begin(), working_dir.end(), '\\', '/' );
