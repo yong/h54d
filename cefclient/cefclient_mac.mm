@@ -217,8 +217,11 @@ static NSAutoreleasePool* g_autopool = nil;
   AppGetBrowserSettings(settings);
 
   window_info.SetAsChild(contentView, 0, 0, kWindowWidth, kWindowHeight);
+    
+  NSString *currentpath = [[[[NSBundle mainBundle] bundlePath] stringByDeletingPathExtension] stringByDeletingLastPathComponent];
+  NSString *fileName = [NSString stringWithFormat:@"file:///%@/%@",currentpath,@"index.htm"];
   CefBrowser::CreateBrowser(window_info, g_handler.get(),
-                            "http://www.google.com", settings);
+                            [fileName UTF8String], settings);
 
   // Show the window.
   [mainWnd makeKeyAndOrderFront: nil];
