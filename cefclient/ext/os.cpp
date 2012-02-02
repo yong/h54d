@@ -2,7 +2,12 @@
 #include "include/cef.h"
 #include "include/cef_runnable.h"
 
-extern CefRefPtr<CefV8Value> getNetworkInterface();
+#ifndef WIN32
+#undef OVERRIDE
+#define OVERRIDE
+#endif
+
+//extern CefRefPtr<CefV8Value> getNetworkInterface();
 
 class MyV8Handler : public CefV8Handler
 {
@@ -15,11 +20,11 @@ public:
                        CefRefPtr<CefV8Value>& retval,
                        CefString& exception) OVERRIDE
   {
-    if (name == "networkInterfaces") {
+    /*if (name == "networkInterfaces") {
       // Return my string value.
       retval = getNetworkInterface();
       return true;
-    }
+    }*/
 
     // Function does not exist.
     return false;

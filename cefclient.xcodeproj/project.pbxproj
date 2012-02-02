@@ -98,6 +98,9 @@
 		E99A95613184A025DAEA286C /* keyboard_handler_cpptoc.cc in Sources */ = {isa = PBXBuildFile; fileRef = 748CD485E6DBA8771E01E5E2 /* keyboard_handler_cpptoc.cc */; };
 		EAE5586ADBEA5E1D5F7ED44F /* libcef.dylib in Copy to $(BUILT_PRODUCTS_DIR)/cefclient.app/Contents/MacOS/ */ = {isa = PBXBuildFile; fileRef = 14C755C1706AFCF7A5AA44A3 /* libcef.dylib */; };
 		ECC9EF70F296DE3E9F70106D /* domnode_ctocpp.cc in Sources */ = {isa = PBXBuildFile; fileRef = 56DC839EE86346F6EAEAF36F /* domnode_ctocpp.cc */; };
+		EE88AEFC14DB0C7000FEE8BE /* fs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE88AEF714DB0C7000FEE8BE /* fs.cpp */; };
+		EE88AEFD14DB0C7000FEE8BE /* os.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE88AEF914DB0C7000FEE8BE /* os.cpp */; };
+		EE88AEFE14DB0C7000FEE8BE /* win.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE88AEFB14DB0C7000FEE8BE /* win.cpp */; };
 		F3BAACF00A229A5046FB6730 /* v8context_handler_cpptoc.cc in Sources */ = {isa = PBXBuildFile; fileRef = F0483A2D1EF7742AAEA38A6B /* v8context_handler_cpptoc.cc */; };
 		F51F396A529181C4D800F829 /* v8exception_ctocpp.cc in Sources */ = {isa = PBXBuildFile; fileRef = 468ECAB6532CF48FA751A0C9 /* v8exception_ctocpp.cc */; };
 		F8F4B865CFA5B5AB951C2E5E /* domaccess.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A6A2607997BE401DC42DCDF /* domaccess.html */; };
@@ -326,6 +329,11 @@
 		EB9586A7A5CCEB4F8AEFFF45 /* client_popup_handler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = client_popup_handler.h; sourceTree = "<group>"; };
 		EC3142E0CA8C521B3F746771 /* cefclient.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = cefclient.icns; sourceTree = "<group>"; };
 		ED7DA8E7BE98EB9E02A3ABD8 /* domevent_listener_cpptoc.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = domevent_listener_cpptoc.cc; sourceTree = "<group>"; };
+		EE88AEF714DB0C7000FEE8BE /* fs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fs.cpp; path = ext/fs.cpp; sourceTree = "<group>"; };
+		EE88AEF814DB0C7000FEE8BE /* fs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fs.h; path = ext/fs.h; sourceTree = "<group>"; };
+		EE88AEF914DB0C7000FEE8BE /* os.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = os.cpp; path = ext/os.cpp; sourceTree = "<group>"; };
+		EE88AEFA14DB0C7000FEE8BE /* os.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = os.h; path = ext/os.h; sourceTree = "<group>"; };
+		EE88AEFB14DB0C7000FEE8BE /* win.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = win.cpp; path = ext/win.cpp; sourceTree = "<group>"; };
 		EEEFD38CF535C24F947446E4 /* post_data_ctocpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = post_data_ctocpp.h; sourceTree = "<group>"; };
 		F0483A2D1EF7742AAEA38A6B /* v8context_handler_cpptoc.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = v8context_handler_cpptoc.cc; sourceTree = "<group>"; };
 		F3822D62F6FF4FC5B936914A /* cef_nplugin_capi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cef_nplugin_capi.h; sourceTree = "<group>"; };
@@ -535,6 +543,11 @@
 		76C4A3729C2ADEFA4DA93863 /* cefclient */ = {
 			isa = PBXGroup;
 			children = (
+				EE88AEF714DB0C7000FEE8BE /* fs.cpp */,
+				EE88AEF814DB0C7000FEE8BE /* fs.h */,
+				EE88AEF914DB0C7000FEE8BE /* os.cpp */,
+				EE88AEFA14DB0C7000FEE8BE /* os.h */,
+				EE88AEFB14DB0C7000FEE8BE /* win.cpp */,
 				57338A9AD1F426E475F2A4CA /* mac */,
 				4EBA993052482FD2D4F643A9 /* res */,
 				BDFDD7C41EA28111EEFAD317 /* cefclient.cpp */,
@@ -701,12 +714,13 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 			};
-			buildConfigurationList = 5627BAF721B148130D750A27 /* Build configuration list for PBXProject "h54d" */;
+			buildConfigurationList = 5627BAF721B148130D750A27 /* Build configuration list for PBXProject "cefclient" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = C93C9288CEA74098FF733D84;
 			projectDirPath = "";
@@ -787,6 +801,9 @@
 				04FD9135645A80EE5B2DDFEE /* cefclient_mac.mm in Sources */,
 				8B17B72C33188DC68DD89434 /* client_handler_mac.mm in Sources */,
 				B603CBCC8D36CE20C9E62E67 /* resource_util_mac.mm in Sources */,
+				EE88AEFC14DB0C7000FEE8BE /* fs.cpp in Sources */,
+				EE88AEFD14DB0C7000FEE8BE /* os.cpp in Sources */,
+				EE88AEFE14DB0C7000FEE8BE /* win.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1191,7 +1208,7 @@
 			defaultConfigurationIsVisible = 1;
 			defaultConfigurationName = Debug;
 		};
-		5627BAF721B148130D750A27 /* Build configuration list for PBXProject "h54d" */ = {
+		5627BAF721B148130D750A27 /* Build configuration list for PBXProject "cefclient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81FDA1D67313979CBCD0ED45 /* Debug */,

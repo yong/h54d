@@ -2,11 +2,22 @@
 #include "include/cef.h"
 #include "include/cef_runnable.h"
 
+#ifdef WIN32
 #include <io.h>
+#else
+#define _open open
+#define _close close
+#define _O_RDWR O_RDWR
+#endif
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sstream>
+
+#ifndef WIN32
+#undef OVERRIDE
+#define OVERRIDE
+#endif
 
 CefRefPtr<CefV8Value> fs_open(const CefV8ValueList& arguments)
 {
@@ -16,7 +27,7 @@ CefRefPtr<CefV8Value> fs_open(const CefV8ValueList& arguments)
 	const CefString& filename = arguments[0]->GetStringValue();
 	int mode = _O_RDWR;
 
-	int fd = _wopen(filename.c_str(), mode);
+	int fd = _open(filename.ToString().c_str(), mode);
 
 	return CefV8Value::CreateInt(fd);
 }
@@ -47,8 +58,7 @@ CefRefPtr<CefV8Value> fs_readFile(const CefV8ValueList& arguments)
 	}
 
 	CefString path = arguments[0]->GetStringValue();
-	const wchar_t* path_s = path.c_str();
-	FILE *f = _wfopen(path_s, L"r" );
+	FILE *f = fopen(path.ToString().c_str(), "r" );
 	if (NULL == f) {
 		return CefV8Value::CreateNull(); 
 	}

@@ -12,6 +12,9 @@
 #import <Cocoa/Cocoa.h>
 #include <sstream>
 
+#include "ext/os.h"
+#include "ext/fs.h"
+
 // The global ClientHandler reference.
 extern CefRefPtr<ClientHandler> g_handler;
 
@@ -217,6 +220,9 @@ static NSAutoreleasePool* g_autopool = nil;
   AppGetBrowserSettings(settings);
 
   window_info.SetAsChild(contentView, 0, 0, kWindowWidth, kWindowHeight);
+
+  OS::Initialize();
+  FS::Initialize();
     
   NSString *currentpath = [[[[NSBundle mainBundle] bundlePath] stringByDeletingPathExtension] stringByDeletingLastPathComponent];
   NSString *fileName = [NSString stringWithFormat:@"file:///%@/%@",currentpath,@"index.htm"];
